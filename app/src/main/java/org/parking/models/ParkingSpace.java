@@ -15,15 +15,15 @@ public class ParkingSpace implements CarPark{
 
     @Override
     public void parkHere(final Vehicle vehicle) throws SpaceNotFoundException {
-        if (canVehicleParkhere(vehicle)) {
+        if (canVehicleParkHere(vehicle)) {
             this.occupier = vehicle;
         } else {
             throw new SpaceNotFoundException("This space is already occupied!");
         }
     }
 
-    public boolean canVehicleParkhere(Vehicle vehicle) {
-        return this.occupier == null;
+    public boolean canVehicleParkHere(Vehicle vehicle) {
+        return this.occupier == null && vehicle.size.equals(this.sizeOfSpace);
     }
 
     public void leaveParkingSpace() {

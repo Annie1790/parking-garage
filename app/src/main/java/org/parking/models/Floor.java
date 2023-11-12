@@ -12,12 +12,11 @@ public class Floor implements CarPark {
     @Override
     public void parkHere(final Vehicle vehicle) throws SpaceNotFoundException {
         for (ParkingSpace space: spaces) {
-            if (space.canVehicleParkhere(vehicle)) {
+            if (space.canVehicleParkHere(vehicle)) {
                 space.parkHere(vehicle);
-                break;
-            } else {
-                throw new SpaceNotFoundException("No space found!");
+                return;
             }
         }
+        throw new SpaceNotFoundException("No space found!");
     }
 }
