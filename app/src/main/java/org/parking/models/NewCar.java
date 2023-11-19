@@ -2,7 +2,7 @@ package org.parking.models;
 
 import org.parking.enums.Size;
 
-public class NewCar implements Car{
+public class NewCar implements Car {
     String name;
     String regNum;
     Size size;
@@ -21,5 +21,10 @@ public class NewCar implements Car{
     @Override
     public Size getSize() {
         return this.size;
+    }
+
+    @Override
+    public String getName() {
+        return this.name;
     }
 }

@@ -9,14 +9,13 @@ public class Garage implements CarPark {
         this.floors = floors;
     }
     @Override
-    public void parkHere(final Car vehicle) throws SpaceNotFoundException {
+    public void parkHere(final Vehicle vehicle) throws SpaceNotFoundException {
         for (Floor floor: floors) {
             try {
                 floor.parkHere(vehicle);
-                System.out.println("parked");
                 return;
             } catch (SpaceNotFoundException e) {
-                System.out.println("No space on this floor" + "\n" + e);
+                System.out.println("No space on this floor" + "\n");
             }
         }
         throw new SpaceNotFoundException("No space in the garage!");
