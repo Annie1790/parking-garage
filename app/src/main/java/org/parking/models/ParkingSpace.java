@@ -5,7 +5,7 @@ import org.parking.exceptions.SpaceNotFoundException;
 
 public class ParkingSpace implements CarPark{
 
-    Vehicle occupier = null;
+    Car occupier = null;
     Size sizeOfSpace;
 
     public ParkingSpace(Size size) {
@@ -14,7 +14,7 @@ public class ParkingSpace implements CarPark{
     }
 
     @Override
-    public void parkHere(final Vehicle vehicle) throws SpaceNotFoundException {
+    public void parkHere(final Car vehicle) throws SpaceNotFoundException {
         if (canVehicleParkHere(vehicle)) {
             this.occupier = vehicle;
         } else {
@@ -22,8 +22,8 @@ public class ParkingSpace implements CarPark{
         }
     }
 
-    public boolean canVehicleParkHere(Vehicle vehicle) {
-        return this.occupier == null && vehicle.size.equals(this.sizeOfSpace);
+    public boolean canVehicleParkHere(Car vehicle) {
+        return this.occupier == null && vehicle.getSize().equals(this.sizeOfSpace);
     }
 
     public void leaveParkingSpace() {

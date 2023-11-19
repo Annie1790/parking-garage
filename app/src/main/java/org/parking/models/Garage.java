@@ -9,7 +9,7 @@ public class Garage implements CarPark {
         this.floors = floors;
     }
     @Override
-    public void parkHere(final Vehicle vehicle) throws SpaceNotFoundException {
+    public void parkHere(final Car vehicle) throws SpaceNotFoundException {
         for (Floor floor: floors) {
             try {
                 floor.parkHere(vehicle);

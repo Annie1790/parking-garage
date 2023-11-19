@@ -10,7 +10,7 @@ public class Floor implements CarPark {
         this.spaces = spaces;
     }
     @Override
-    public void parkHere(final Vehicle vehicle) throws SpaceNotFoundException {
+    public void parkHere(final Car vehicle) throws SpaceNotFoundException {
         for (ParkingSpace space: spaces) {
             if (space.canVehicleParkHere(vehicle)) {
                 space.parkHere(vehicle);

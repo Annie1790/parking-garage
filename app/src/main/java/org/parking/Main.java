@@ -4,15 +4,16 @@ import org.parking.models.*;
 import org.parking.enums.*;
 import org.parking.exceptions.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class Main {
+
+    public static void createCarAndPark(Garage garage, VehicleFactory factory, String name, String regNum) throws SpaceNotFoundException {
+        Car car = factory.createCar(name, regNum);
+        car.startEngine();
+        garage.parkHere(car);
+    }
     public static void main(String[] args) throws SpaceNotFoundException {
-        Vehicle car = new Car("Peugeot","1234DB");
-        Vehicle motorbike = new Motorbike("Honda", "6543YJ");
-        Vehicle van = new Van("Cat", "9876VD");
+        VehicleFactory oldFactory = new OldVehicleFactory();
+        VehicleFactory newFactory = new NewVehicleFactory();
 
         ParkingSpace[] spacesForFloor1 = {
             new ParkingSpace(Size.SMALL),
@@ -31,6 +32,8 @@ public class Main {
         };
 
         Garage garage = new Garage(floors);
-        garage.parkHere(car);
+        createCarAndPark(garage, oldFactory, "Peugeot 206", "1234AB");
+        createCarAndPark(garage, newFactory, "Tesla", "7654HY");
+
     }
 }

@@ -2,7 +2,9 @@ package org.parking.models;
 
 import org.parking.enums.Size;
 
-public class Car extends Vehicle{
+public interface Car {
 
-    public Car(final String name, final String regNum) { super(name, regNum, Size.LARGE); }
+    public void startEngine();
+
+    public Size getSize();
 }
